@@ -1,12 +1,5 @@
-import { useState } from 'preact/hooks';
-import './app.css';
+import LandingPage from './components/pages/LandingPage';
 
 export function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <h1>Serwer</h1>
-    </>
-  );
+  return <LandingPage></LandingPage>;
 }
