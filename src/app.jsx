@@ -1,5 +1,6 @@
-import LandingPage from './components/pages/LandingPage';
+import Home from './components/pages/Home';
+import LoginPage from './components/pages/LoginPage';
 
 export function App() {
-  return <LandingPage></LandingPage>;
+  return <LoginPage />;
 }
