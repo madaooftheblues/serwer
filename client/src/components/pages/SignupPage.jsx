@@ -6,6 +6,7 @@ import Label from '../elements/Label';
 import Input from '../elements/Input';
 import CnicInput from '../elements/CnicInput';
 import PhoneNumberInput from '../elements/PhoneNumberInput';
+import Button from '../elements/Button';
 
 const SignupPage = () => {
   return (
@@ -24,6 +25,9 @@ const SignupPage = () => {
             <Input id="cpass" type="password" placeholder="* * * * *" />
             <CnicInput />
             <PhoneNumberInput />
+            <Button className="bg-blue-800 text-yellow-50 my-4 w-full rounded-2xl text-lg">
+              Submit
+            </Button>
           </form>
         </Box>
       </Body>
