@@ -8,7 +8,9 @@ const Input = ({
   minLength,
   maxLength,
   value,
-  onChange
+  name,
+  onChange,
+  required
 }) => {
   return (
     <input
@@ -21,7 +23,9 @@ const Input = ({
       minLength={minLength}
       maxLength={maxLength}
       value={value}
+      name={name}
       onChange={onChange}
+      required
     />
   );
 };

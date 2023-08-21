@@ -3,8 +3,34 @@ import Box from '../elements/Box';
 import Button from '../elements/Button';
 import Header from '../elements/Header';
 import Input from '../elements/Input';
+import { useState } from 'preact/hooks';
 
 const LoginPage = () => {
+  const [formData, setFormData] = useState({ email: '' });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const { email } = formData;
+    const res = await fetch(`http://localhost:3000/emails`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: email })
+    });
+    if (!res.ok) {
+      console.log('invalid');
+      return;
+    }
+    const data = await res.json();
+    console.log(data);
+  };
+
   return (
     <>
       <Header />
@@ -16,8 +42,14 @@ const LoginPage = () => {
           </p>
           <div>
             <p className="font-bold text-l">Email Address</p>
-            <form className="flex gap-3 items-center">
-              <Input type="email" placeholder="Enter your email address" />
+            <form className="flex gap-3 items-center" onSubmit={onSubmit}>
+              <Input
+                type="email"
+                placeholder="Enter your email address"
+                name="email"
+                onChange={handleInputChange}
+                required
+              />
               <Button className="bg-emerald-800 text-yellow-50">Login</Button>
             </form>
           </div>
