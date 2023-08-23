@@ -10,7 +10,8 @@ const Input = ({
   value,
   name,
   onChange,
-  required
+  required,
+  autoFocus
 }) => {
   return (
     <input
@@ -25,7 +26,8 @@ const Input = ({
       value={value}
       name={name}
       onChange={onChange}
-      required
+      required={required}
+      autoFocus={autoFocus}
     />
   );
 };
