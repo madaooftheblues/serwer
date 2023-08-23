@@ -1,18 +1,13 @@
 const mongoose = require('mongoose');
 const { cnicSchema, addressSchema, phoneSchema } = require('./Schemas');
 
-const userSchema = mongoose.Schema({
+const staffSchema = mongoose.Schema({
   fullName: {
     type: String,
     required: true
   },
-  email: {
-    type: String,
-    unique: true
-  },
   dateOfBirth: {
     type: Date,
-    unique: true,
     required: true
   },
   cnic: {
@@ -26,9 +21,21 @@ const userSchema = mongoose.Schema({
     required: true
   },
   address: addressSchema,
-  dateAdded: Date
+  description: String,
+  dateAdded: Date,
+  score: Number,
+  currentEmployer: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  pastEmployers: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  ]
 });
 
-const userModel = mongoose.model('User', userSchema);
+const staffModel = mongoose.model('Staff', staffSchema);
 
-module.exports = userModel;
+module.exports = staffModel;

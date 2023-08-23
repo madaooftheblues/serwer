@@ -4,14 +4,19 @@ import Box from './Box';
 
 const StaffCard = ({ name, age, gender, address }) => {
   return (
-    <div className="flex flex-col gap-3">
-      <div>
+    <div className="flex flex-col p-8 gap-3 border-2 border-gray-400 rounded-3xl">
+      <div className="flex justify-between">
         <div>
           <h2 className="font-bold">{name}</h2>
           <p>Added 30 Aug 2023</p>
         </div>
         <div>
-          <img src="" alt="" />
+          <img
+            src="#"
+            alt=""
+            size="50"
+            className="border-2  border-gray-400 rounded-full"
+          />
         </div>
       </div>
       <p>
